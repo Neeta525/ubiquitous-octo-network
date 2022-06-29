@@ -12,18 +12,18 @@
 - [Technologies](#technologies)
 
 ## Description
-This interface is a Social Network API, using Node.js, Inquirer, and NoSQL. Manage thoughts and users.
+This interface is a Social Network API, using Node.js, Inquirer, and NoSQL. Manage thoughts and users in Insomnia. 
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Installation
-npm i
+Clone the repository, then npm i, and npm run start. Make sure you have all the required dependencies, download Insomnia and MongoDB. 
 
 ## Usage
 screenshot and video coming soon...
-![screenshot]()
+![screenshot](assets/SNAPISS.png)
 Click on this link to view it in action
 [video]()
 
