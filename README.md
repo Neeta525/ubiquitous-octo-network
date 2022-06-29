@@ -19,7 +19,7 @@ This interface is a Social Network API, using Node.js, Inquirer, and NoSQL. Mana
 
 
 ## Installation
-The user will need to install npm i, npm i inquirer, and npm i mysql. User then needs to run npm start.
+npm i
 
 ## Usage
 screenshot and video coming soon...
