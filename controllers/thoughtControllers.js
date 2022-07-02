@@ -62,4 +62,40 @@ deleteThought(req, res) {
 )
 .catch((err) => res.status(500).json(err));
 },
+//create reaction
+addReaction(req, res) {
+  Thought.findOneAndUpdate(
+    { _id: req.params.thoughtId },
+    { $push: { reactions: req.body }},
+    { new: true }
+  )
+  .then(thought => {
+    if(!thought) {
+      res.status(404).json({ message: 'No thought found with this Id' });
+      return;
+    }
+    res.json(thought);
+  })
+  .catch(err => {
+    console.log('try again');
+    res.status(400).json(err);
+  });
+},
+
+deleteReaction(req,res) {
+  Thought.findOneAndUpdate(
+    { _id: req.params.thoughtId },
+    { $pull: { reactions: { reactionId: req.body.ractionId }}},
+    { new: true }
+  )
+  .then(thoughts => {
+    if(thoughts) {
+      res.status(404).json({ message: 'No thought with that ID'});
+      return;
+    }
+    res.json({ message: 'Reaction Deleted' });
+  })
+  .catch(err => res.json(err));
+}
 };
+

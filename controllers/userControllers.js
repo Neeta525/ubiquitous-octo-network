@@ -1,3 +1,4 @@
+const req = require('express/lib/request');
 const { User } = require('../models');
 
 module.exports = {
@@ -30,9 +31,34 @@ module.exports = {
       )
       .then((user) =>
       !user
-        ? res.status(404).json({ message: 'No user with that ID' })
+        ? res.status(404).json({ message: 'No user with that Id' })
         : res.json(user)
     )
     .catch((err) => res.status(500).json(err));
-  }
+},
+//create friend
+addFriend(req, res) {
+  User.findOneAndUpdate(
+    { _id: req.params.userId },
+    { $push: { friend: req.params.friendId }},
+    { new: true }
+  )
+  .then(user => {
+    if(!user) {
+      res.status(404).json({ message: 'No user found with that Id' });
+      return;
+    }
+    res.json(user);
+  })
+  .catch(err => res.status(400).json(err));
+},
+deleteFriend(req, res) {
+  User.findOneAndDelete(
+    { _id: req.params.userId },
+    { $pull: { friends: req.params.friendId }},
+    { new:true }
+  )
+  .then(user => res.json(user))
+  .catch(err => res.status(400).json(err));
+}
 };
