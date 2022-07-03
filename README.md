@@ -25,7 +25,7 @@ Clone the repository, then npm i, and npm run start. Make sure you have all the 
 screenshot and video coming soon...
 ![screenshot](assets/SNAPISS.png)
 Click on this link to view it in action
-[video]()
+[video](https://youtu.be/cDiMSgSa1g8)
 
 ## Contributing
 Please see contact information below to inquire about contributing to this project.
